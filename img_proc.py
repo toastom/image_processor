@@ -27,8 +27,7 @@ class App:
 
     def convert_b_w(self):
         #File dialog to let the user choose which image they want
-        self.filename = tkFileDialog.askopenfilename(initialdir="C:\Python\my_scripts",
-                                                     title="Select Image",
+        self.filename = tkFileDialog.askopenfilename(title="Select Image",
                                                      filetypes=(("jpeg files", "*jpg"),
                                                                 ("all files", "*.*")))
         
@@ -40,8 +39,7 @@ class App:
 
     def rotate_image(self):
         #File choosing dialog
-        self.filename = tkFileDialog.askopenfilename(initialdir="C:\Python\my_scripts",
-                                                     title="Select Image",
+        self.filename = tkFileDialog.askopenfilename(title="Select Image",
                                                      filetypes=(("jpeg files", "*jpg"),
                                                                 ("all files", "*.*")))
         self.image = Image.open(self.filename) #Opens image
