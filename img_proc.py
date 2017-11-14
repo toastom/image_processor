@@ -28,10 +28,20 @@ class App:
     def convert_b_w(self):
         #File dialog to let the user choose which image they want
         self.filename = tkFileDialog.askopenfilename(title="Select Image",
-                                                     filetypes=(("jpeg files", "*jpg"),
+                                                     filetypes=(("jpeg files", "*.jpg"),
                                                                 ("all files", "*.*")))
         
         self.image = Image.open(self.filename) #Opens image the user chose
+        #self.conv_image = self.image.convert(mode='L') #Converts the image
+
+        tkMessageBox.showinfo("Save Location", "Choose where to save") #Info to save
+
+        #Change filename to SaveAs instead of Open
+        self.filename = tkFileDialog.asksaveasfilename(title="Save as",
+                                                           filetypes=(("jpeg files", "*.jpg"),
+                                                                      ("all files", "*.*")))
+
+        
         self.image.convert(mode='L').save(self.filename) #Converts the image and saves
 
         tkMessageBox.showinfo("Saved", "Image saved") #Dialog to show we saved
@@ -46,6 +56,14 @@ class App:
 
         self.rotation_value = tkSimpleDialog.askinteger("Rotate", "Rotate Degrees Clockwise",
                                 minvalue=0, maxvalue=360)
+
+        tkMessageBox.showinfo("Save Location", "Choose where to save") #Info to save
+
+        #Change filename to SaveAs instead of Open
+        self.filename = tkFileDialog.asksaveasfilename(title="Save as",
+                                                           filetypes=(("jpeg files", "*.jpg"),
+                                                                      ("all files", "*.*")))
+        
         #Default with Tk is to rotate counter-clockwise, so we have to make it negative
         #to flip clockwise
         self.image.rotate(self.rotation_value * -1).save(self.filename)
