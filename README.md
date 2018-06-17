@@ -1,2 +1,2 @@
 # Image Manipulator
-Image Manipulator. Filter images, rotate, and do some other funky things once it's finished. :)
+Image Manipulator. Rotate and resize images. Maybe some other funky things if it ever gets finished. :)
